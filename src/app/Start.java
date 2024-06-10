@@ -2,7 +2,7 @@ package app;
 
 public class Start {
 	
-	public static void logicaDeExecucao() {
+	private static void logicaDeExecucao() {
 		
 	}
 	
