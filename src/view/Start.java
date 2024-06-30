@@ -8,8 +8,9 @@ public class Start {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		ExecutarRapido.logicaDeExecucao(scanner);
-
+		ExecutarRapido executar = new ExecutarRapido();
+		executar.logicaDeExecucao(scanner);
+		scanner.close();
 	}
 
 }

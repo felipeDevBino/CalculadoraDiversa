@@ -2,65 +2,83 @@ package model.rapido;
 
 import java.util.Scanner;
 
-import controller.Acesso;
+import controller.rapida.EntradaDados;
+import controller.rapida.HistoricoControle;
+import view.rapida.CalcRapidaView;
 
 public class ExecutarRapido {
 
-	public static void logicaDeExecucao(Scanner scanner) {
-		Acesso historico = new Acesso();
-		String operador;
-		System.out.println(":");
-		int num1 = Integer.parseInt(scanner.nextLine());
-		int num2;
+	private HistoricoControle controllerHistorico;
+	private HistoricoDados historicoModel;
+	private EntradaDados modelDados;
+	private CalcRapidaView view;
+
+	public ExecutarRapido() {
+		controllerHistorico = new HistoricoControle();
+		historicoModel = new HistoricoDados();
+		modelDados = new EntradaDados();
+		view = new CalcRapidaView();
+	}
+
+	public void logicaDeExecucao(Scanner scanner) {
+		int num1 = 0;
+		int num2 = 0;
+		int resultado;
+		String operador = null;
+		view.imprimeMensagem(":");
+		num1 = modelDados.insercaoDeNumero(scanner);
 		do {
-			System.out.println("(+) soma (-) subtração (*) multiplicação (/) divisão (0) cancelar (c) limpar (h) histórico");
-			System.out.println(":");
-			operador = scanner.nextLine();
-			
+			operador = modelDados.operacao(scanner, view);
+
 			switch (operador) {
 			case "+":
-				System.out.println(num1 + " + ");
-				num2 = Integer.parseInt(scanner.nextLine());
-				System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
-				historico.registrarNoHistorico(num1, num2, operador);
+				view.imprimeMensagemOperacao(num1, operador);
+				num2 = modelDados.insercaoDeNumero(scanner);
+				resultado = (num1 + num2);
+				view.imprimeResultado(num1, num2, operador, resultado);
+				controllerHistorico.registrarNoHistorico(historicoModel, view, num1, num2, operador, resultado);
 				num1 = (num1 + num2);
 				break;
 			case "-":
-				System.out.println(num1 + " - ");
-				num2 = Integer.parseInt(scanner.nextLine());
-				System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
-				historico.registrarNoHistorico(num1, num2, operador);
+				view.imprimeMensagemOperacao(num1, operador);
+				num2 = modelDados.insercaoDeNumero(scanner);
+				resultado = (num1 - num2);
+				view.imprimeResultado(num1, num2, operador, resultado);
+				controllerHistorico.registrarNoHistorico(historicoModel, view, num1, num2, operador, resultado);
 				num1 = (num1 - num2);
 				break;
 			case "*":
-				System.out.println(num1 + " * ");
-				num2 = Integer.parseInt(scanner.nextLine());
-				System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
-				historico.registrarNoHistorico(num1, num2, operador);
-				num1 = (num1*num2);
+				view.imprimeMensagemOperacao(num1, operador);
+				num2 = modelDados.insercaoDeNumero(scanner);
+				resultado = (num1 * num2);
+				view.imprimeResultado(num1, num2, operador, resultado);
+				controllerHistorico.registrarNoHistorico(historicoModel, view, num1, num2, operador, resultado);
+				num1 = (num1 * num2);
 				break;
 			case "/":
-				System.out.println(num1 + " / ");
-				num2 = Integer.parseInt(scanner.nextLine());
-				System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
-				historico.registrarNoHistorico(num1, num2, operador);
-				num1 = (num1/num2);
+				view.imprimeMensagemOperacao(num1, operador);
+				num2 = modelDados.insercaoDeNumero(scanner);
+				resultado = (num1 / num2);
+				view.imprimeResultado(num1, num2, operador, resultado);
+				controllerHistorico.registrarNoHistorico(historicoModel, view, num1, num2, operador, resultado);
+				num1 = (num1 / num2);
 				break;
 			case "0":
-				System.out.println("Calculadora rápida encerrada.");
+				view.imprimeMensagem("Calculadora rápida encerrada.");
 				return;
 			case "c":
-				System.out.println(":");
-				num1 = Integer.parseInt(scanner.nextLine());
+				view.imprimeMensagem(":");
+				num1 = modelDados.insercaoDeNumero(scanner);
 				break;
 			case "h":
-				historico.imprimirHistorico();
+				controllerHistorico.imprimirHistorico(historicoModel, view);
 				break;
 			default:
-				System.out.println("Comando inválido!");
+				view.imprimeMensagem("Comando inválido!");
 				break;
 			}
 		} while (!operador.equals("0"));
+
 	}
 
 }
