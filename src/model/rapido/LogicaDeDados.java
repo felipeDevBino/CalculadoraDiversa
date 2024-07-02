@@ -6,14 +6,14 @@ import controller.rapida.EntradaDados;
 import controller.rapida.HistoricoControle;
 import view.rapida.CalcRapidaView;
 
-public class ExecutarRapido {
+public class LogicaDeDados {
 
 	private HistoricoControle controllerHistorico;
 	private HistoricoDados historicoModel;
 	private EntradaDados modelDados;
 	private CalcRapidaView view;
 
-	public ExecutarRapido() {
+	public LogicaDeDados() {
 		controllerHistorico = new HistoricoControle();
 		historicoModel = new HistoricoDados();
 		modelDados = new EntradaDados();
