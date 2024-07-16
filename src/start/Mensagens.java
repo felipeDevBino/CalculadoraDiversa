@@ -1,6 +1,6 @@
-package view.rapida;
+package start;
 
-public class CalcRapidaView {
+public class Mensagens {
 
 	public void imprimeMensagemOperacao(int num, String operacao) {
 		System.out.println(num + " " + operacao + " ");
@@ -16,6 +16,10 @@ public class CalcRapidaView {
 
 	public void imprimeMensagem(String mensagem) {
 		System.out.println(mensagem);
+	}
+
+	public String getTexto(String mensagem) {
+		return mensagem;
 	}
 
 }

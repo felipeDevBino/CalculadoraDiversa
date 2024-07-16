@@ -1,8 +1,8 @@
-package controller.rapida;
+package rapida.acesso;
 
 import java.util.Scanner;
 
-import view.rapida.CalcRapidaView;
+import start.Mensagens;
 
 public class EntradaDados {
 
@@ -10,8 +10,8 @@ public class EntradaDados {
 		return Integer.parseInt(scanner.nextLine());
 	}
 
-	public String operacao(Scanner scanner, CalcRapidaView view) {
-		view.imprimeMensagem(
+	public String operacao(Scanner scanner, Mensagens mensagem) {
+		mensagem.imprimeMensagem(
 				"(+) soma (-) subtração (*) multiplicação (/) divisão (0) cancelar (c) limpar (h) histórico\n:");
 		return scanner.nextLine();
 	}

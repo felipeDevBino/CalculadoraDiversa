@@ -1,8 +1,8 @@
-package view;
+package start;
 
 import java.util.Scanner;
 
-import model.rapido.LogicaDeDados;
+import rapida.modelo.LogicaDeDados;
 
 public class Start {
 
