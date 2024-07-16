@@ -11,7 +11,7 @@ public class EntradaDados {
 	}
 
 	public String operacao(Scanner scanner, Mensagens mensagem) {
-		mensagem.imprimeMensagem(
+		System.out.println(
 				"(+) soma (-) subtração (*) multiplicação (/) divisão (0) cancelar (c) limpar (h) histórico\n:");
 		return scanner.nextLine();
 	}

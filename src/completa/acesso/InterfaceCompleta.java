@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 
 import completa.historico.Historico;
 import completa.modelo.LogicaDeDados;
+import start.Mensagens;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -84,7 +85,7 @@ public class InterfaceCompleta {
 		});
 		btn6.setBounds(347, 241, 99, 39);
 		frame.getContentPane().add(btn6);
- 
+
 		JButton btn5 = new JButton("5");
 		btn5.addActionListener(new ActionListener() {
 			@Override
@@ -293,9 +294,9 @@ public class InterfaceCompleta {
 		btnHistorico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (historico.verificaSeHaHistorico()) {
-					
-					//TODO TELA COM BARRA DE ROLAGEM
-					
+
+					// TODO TELA COM BARRA DE ROLAGEM
+
 					JOptionPane.showMessageDialog(null, historico.getHistorico(), "Histórico",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
@@ -330,11 +331,16 @@ public class InterfaceCompleta {
 		JButton btnSoma = new JButton("+");
 		btnSoma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dados.setOperador("+");
-				textField.setText(dados.getOperador());
-				if (dados.getEstadoOperando()) {
-					btnResultado.getAction();
-					dados.setSeEstaOperando(false);
+				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
+					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " + ");
+				} else {
+					dados.setOperador("+");
+					textField.setText(dados.getOperador());
+
+					if (dados.getEstadoOperando()) {
+						btnResultado.getAction();
+						dados.setSeEstaOperando(false);
+					}
 				}
 			}
 		});
@@ -344,13 +350,17 @@ public class InterfaceCompleta {
 		JButton btnSubtracao = new JButton("-");
 		btnSubtracao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dados.setOperador("-");
-				textField.setText(dados.getOperador());
-				if (dados.getEstadoOperando()) {
-					btnResultado.getAction();
-					dados.setSeEstaOperando(false);
-				}
+				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
+					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " - ");
+				} else {
+					dados.setOperador("-");
+					textField.setText(dados.getOperador());
 
+					if (dados.getEstadoOperando()) {
+						btnResultado.getAction();
+						dados.setSeEstaOperando(false);
+					}
+				}				
 			}
 		});
 		btnSubtracao.setBounds(212, 145, 75, 35);
@@ -358,13 +368,18 @@ public class InterfaceCompleta {
 
 		JButton btnMultiplicacao = new JButton("*");
 		btnMultiplicacao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dados.setOperador("*");
-				textField.setText(dados.getOperador());
-				if (dados.getEstadoOperando()) {
-					btnResultado.getAction();
-					dados.setSeEstaOperando(false);
-				}
+			public void actionPerformed(ActionEvent e) {				
+				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
+					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " * ");
+				} else {
+					dados.setOperador("*");
+					textField.setText(dados.getOperador());
+					
+					if (dados.getEstadoOperando()) {
+						btnResultado.getAction();
+						dados.setSeEstaOperando(false);
+					}
+				}			
 			}
 		});
 		btnMultiplicacao.setBounds(286, 145, 75, 35);
@@ -373,11 +388,16 @@ public class InterfaceCompleta {
 		JButton btnDivisao = new JButton("/");
 		btnDivisao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dados.setOperador("/");
-				textField.setText(dados.getOperador());
-				if (dados.getEstadoOperando()) {
-					btnResultado.getAction();
-					dados.setSeEstaOperando(false);
+				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
+					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " / ");
+				} else {
+					dados.setOperador("/");
+					textField.setText(dados.getOperador());
+					
+					if (dados.getEstadoOperando()) {
+						btnResultado.getAction();
+						dados.setSeEstaOperando(false);
+					}
 				}
 			}
 		});
@@ -387,15 +407,15 @@ public class InterfaceCompleta {
 		JButton btnRecursivo = new JButton("RECURSIVO");
 		btnRecursivo.setBounds(10, 341, 99, 39);
 		frame.getContentPane().add(btnRecursivo);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Telefone");
 		lblNewLabel_3.setBounds(32, 406, 56, 14);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("Email");
 		lblNewLabel_4.setBounds(212, 406, 46, 14);
 		frame.getContentPane().add(lblNewLabel_4);
-		
+
 		JLabel lblNewLabel_5 = new JLabel("GitHub");
 		lblNewLabel_5.setBounds(369, 406, 46, 14);
 		frame.getContentPane().add(lblNewLabel_5);

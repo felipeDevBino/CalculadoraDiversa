@@ -14,12 +14,4 @@ public class Mensagens {
 		return num1 + " " + operador + " " + num2 + " = " + resultado;
 	}
 
-	public void imprimeMensagem(String mensagem) {
-		System.out.println(mensagem);
-	}
-
-	public String getTexto(String mensagem) {
-		return mensagem;
-	}
-
 }

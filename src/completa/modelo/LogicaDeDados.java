@@ -119,8 +119,7 @@ public class LogicaDeDados {
 	private String logicaDeOperacao(Historico historico, String operador) {
 		resultado = 0;
 		if (getPrimeiroOperador().isEmpty() || getSegundoOperador().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					mensagem.getTexto("Erro, insira ambos os valores para serem operados!"));
+			JOptionPane.showMessageDialog(null, "Erro, insira ambos os valores para serem operados!");
 			limpaNumerosRegistrados();
 		} else {
 			int primeiro = atualizaListaComResultado(primeiroOperador);
@@ -144,7 +143,7 @@ public class LogicaDeDados {
 			salvaResultado(resultado);
 			limpaNumerosRegistrados();
 			setPrimeiroOperador(resultado);
-			return mensagem.getTexto(resultado + "");
+			return resultado + "";
 		}
 		return "";
 	}

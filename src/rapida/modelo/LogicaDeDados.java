@@ -23,7 +23,7 @@ public class LogicaDeDados {
 		int num2 = 0;
 		int resultado;
 		String operador = null;
-		mensagem.imprimeMensagem(":");
+		System.out.println(":");
 		num1 = dados.insercaoDeNumero(scanner);
 		do {
 			operador = dados.operacao(scanner, mensagem);
@@ -62,10 +62,10 @@ public class LogicaDeDados {
 				num1 = (num1 / num2);
 				break;
 			case "0":
-				mensagem.imprimeMensagem("Calculadora rápida encerrada.");
+				System.out.println("Calculadora rápida encerrada.");
 				return;
 			case "c":
-				mensagem.imprimeMensagem(":");
+				System.out.println(":");
 				num1 = dados.insercaoDeNumero(scanner);
 				historico.limpaHistorico();
 				break;
@@ -73,7 +73,7 @@ public class LogicaDeDados {
 				historico.getHistorico();
 				break;
 			default:
-				mensagem.imprimeMensagem("Comando inválido!");
+				System.out.println("Comando inválido!");
 				break;
 			}
 		} while (!operador.equals("0"));
