@@ -69,8 +69,8 @@ public class InterfaceCompleta {
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 
-		JButton btnNewButton = new JButton("6");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btn6 = new JButton("6");
+		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(6);
@@ -82,11 +82,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton.setBounds(347, 241, 99, 39);
-		frame.getContentPane().add(btnNewButton);
+		btn6.setBounds(347, 241, 99, 39);
+		frame.getContentPane().add(btn6);
  
-		JButton btnNewButton_1 = new JButton("5");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btn5 = new JButton("5");
+		btn5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
@@ -99,11 +99,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(238, 241, 99, 39);
-		frame.getContentPane().add(btnNewButton_1);
+		btn5.setBounds(238, 241, 99, 39);
+		frame.getContentPane().add(btn5);
 
-		JButton btnNewButton_2 = new JButton("4");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btn4 = new JButton("4");
+		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(4);
@@ -115,11 +115,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(129, 241, 99, 39);
-		frame.getContentPane().add(btnNewButton_2);
+		btn4.setBounds(129, 241, 99, 39);
+		frame.getContentPane().add(btn4);
 
-		JButton btnNewButton_3 = new JButton("7");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btn7 = new JButton("7");
+		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(7);
@@ -131,11 +131,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(129, 291, 99, 39);
-		frame.getContentPane().add(btnNewButton_3);
+		btn7.setBounds(129, 291, 99, 39);
+		frame.getContentPane().add(btn7);
 
-		JButton btnNewButton_4 = new JButton("8");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton btn8 = new JButton("8");
+		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(8);
@@ -147,11 +147,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_4.setBounds(238, 291, 99, 39);
-		frame.getContentPane().add(btnNewButton_4);
+		btn8.setBounds(238, 291, 99, 39);
+		frame.getContentPane().add(btn8);
 
-		JButton btnNewButton_5 = new JButton("9");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		JButton btn9 = new JButton("9");
+		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(9);
@@ -163,11 +163,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_5.setBounds(347, 291, 99, 39);
-		frame.getContentPane().add(btnNewButton_5);
+		btn9.setBounds(347, 291, 99, 39);
+		frame.getContentPane().add(btn9);
 
-		JButton btnNewButton_6 = new JButton("0");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		JButton btn0 = new JButton("0");
+		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(0);
@@ -179,15 +179,15 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_6.setBounds(129, 341, 99, 39);
-		frame.getContentPane().add(btnNewButton_6);
+		btn0.setBounds(129, 341, 99, 39);
+		frame.getContentPane().add(btn0);
 
-		JButton btnNewButton_7 = new JButton(",");
-		btnNewButton_7.setBounds(238, 341, 99, 39);
-		frame.getContentPane().add(btnNewButton_7);
+		JButton btnVirgula = new JButton(",");
+		btnVirgula.setBounds(238, 341, 99, 39);
+		frame.getContentPane().add(btnVirgula);
 
-		JButton btnNewButton_8 = new JButton("C");
-		btnNewButton_8.addActionListener(new ActionListener() {
+		JButton btnClear = new JButton("C");
+		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dados.limpaNumerosRegistrados();
 				historico.limpaHistorico();
@@ -195,11 +195,11 @@ public class InterfaceCompleta {
 				textField.setText("");
 			}
 		});
-		btnNewButton_8.setBounds(183, 99, 91, 35);
-		frame.getContentPane().add(btnNewButton_8);
+		btnClear.setBounds(183, 99, 91, 35);
+		frame.getContentPane().add(btnClear);
 
-		JButton btnNewButton_2_1 = new JButton("1");
-		btnNewButton_2_1.addActionListener(new ActionListener() {
+		JButton btn1 = new JButton("1");
+		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(1);
@@ -211,11 +211,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_2_1.setBounds(129, 191, 99, 39);
-		frame.getContentPane().add(btnNewButton_2_1);
+		btn1.setBounds(129, 191, 99, 39);
+		frame.getContentPane().add(btn1);
 
-		JButton btnNewButton_1_1 = new JButton("2");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
+		JButton btn2 = new JButton("2");
+		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(2);
@@ -227,11 +227,11 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_1_1.setBounds(238, 191, 99, 39);
-		frame.getContentPane().add(btnNewButton_1_1);
+		btn2.setBounds(238, 191, 99, 39);
+		frame.getContentPane().add(btn2);
 
-		JButton btnNewButton_9 = new JButton("3");
-		btnNewButton_9.addActionListener(new ActionListener() {
+		JButton btn3 = new JButton("3");
+		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getOperador() == null) {
 					dados.adicionaNumero(3);
@@ -243,8 +243,8 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_9.setBounds(347, 191, 99, 39);
-		frame.getContentPane().add(btnNewButton_9);
+		btn3.setBounds(347, 191, 99, 39);
+		frame.getContentPane().add(btn3);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 23));
@@ -265,32 +265,32 @@ public class InterfaceCompleta {
 		lblNewLabel_1.setBounds(32, 145, 66, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JButton btnNewButton_2_1_1 = new JButton("MÉDIA");
-		btnNewButton_2_1_1.setBounds(10, 191, 99, 39);
-		frame.getContentPane().add(btnNewButton_2_1_1);
+		JButton btnMedia = new JButton("MÉDIA");
+		btnMedia.setBounds(10, 191, 99, 39);
+		frame.getContentPane().add(btnMedia);
 
-		JButton btnNewButton_2_1_3 = new JButton("SOBRA");
-		btnNewButton_2_1_3.setBounds(10, 241, 99, 39);
-		frame.getContentPane().add(btnNewButton_2_1_3);
+		JButton btnSobra = new JButton("SOBRA");
+		btnSobra.setBounds(10, 241, 99, 39);
+		frame.getContentPane().add(btnSobra);
 
-		JButton btnNewButton_2_1_4 = new JButton("PAR/ÍMPAR");
-		btnNewButton_2_1_4.setBounds(10, 291, 99, 39);
-		frame.getContentPane().add(btnNewButton_2_1_4);
+		JButton btnParImpar = new JButton("PAR/ÍMPAR");
+		btnParImpar.setBounds(10, 291, 99, 39);
+		frame.getContentPane().add(btnParImpar);
 
 		JLabel lblNewLabel_2 = new JLabel("@felipeDevBino");
-		lblNewLabel_2.setBounds(305, 388, 75, 14);
+		lblNewLabel_2.setBounds(345, 388, 101, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 
 		JLabel lblNewLabel_2_1 = new JLabel("felipereisbino@gmail.com");
-		lblNewLabel_2_1.setBounds(171, 388, 124, 14);
+		lblNewLabel_2_1.setBounds(158, 388, 148, 14);
 		frame.getContentPane().add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("5541998738614");
-		lblNewLabel_2_1_1.setBounds(73, 388, 99, 14);
+		lblNewLabel_2_1_1.setBounds(23, 388, 99, 14);
 		frame.getContentPane().add(lblNewLabel_2_1_1);
 
-		JButton btnNewButton_10 = new JButton("HISTÓRICO");
-		btnNewButton_10.addActionListener(new ActionListener() {
+		JButton btnHistorico = new JButton("HISTÓRICO");
+		btnHistorico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (historico.verificaSeHaHistorico()) {
 					
@@ -304,90 +304,100 @@ public class InterfaceCompleta {
 				}
 			}
 		});
-		btnNewButton_10.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		btnNewButton_10.setBounds(56, 99, 91, 35);
-		frame.getContentPane().add(btnNewButton_10);
+		btnHistorico.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnHistorico.setBounds(56, 99, 91, 35);
+		frame.getContentPane().add(btnHistorico);
 
-		JButton botaoResultado = new JButton("=");
-		botaoResultado.addActionListener(new ActionListener() {
+		JButton btnResultado = new JButton("=");
+		btnResultado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(dados.realizarOperacao(historico, dados.getOperador()));
 				dados.setOperador(null);
 			}
 		});
-		botaoResultado.setBounds(347, 341, 99, 39);
-		frame.getContentPane().add(botaoResultado);
+		btnResultado.setBounds(347, 341, 99, 39);
+		frame.getContentPane().add(btnResultado);
 
-		JButton btnNewButton_8_1 = new JButton("OFF");
-		btnNewButton_8_1.addActionListener(new ActionListener() {
+		JButton btnOff = new JButton("OFF");
+		btnOff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
-				frame.setEnabled(false);
+				frame.dispose();
 			}
 		});
-		btnNewButton_8_1.setBounds(315, 99, 91, 35);
-		frame.getContentPane().add(btnNewButton_8_1);
+		btnOff.setBounds(315, 99, 91, 35);
+		frame.getContentPane().add(btnOff);
 
-		JButton btnNewButton_11 = new JButton("+");
-		btnNewButton_11.addActionListener(new ActionListener() {
+		JButton btnSoma = new JButton("+");
+		btnSoma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dados.setOperador("+");
 				textField.setText(dados.getOperador());
 				if (dados.getEstadoOperando()) {
-					botaoResultado.getAction();
+					btnResultado.getAction();
 					dados.setSeEstaOperando(false);
 				}
 			}
 		});
-		btnNewButton_11.setBounds(140, 145, 75, 35);
-		frame.getContentPane().add(btnNewButton_11);
+		btnSoma.setBounds(140, 145, 75, 35);
+		frame.getContentPane().add(btnSoma);
 
-		JButton btnNewButton_11_1 = new JButton("-");
-		btnNewButton_11_1.addActionListener(new ActionListener() {
+		JButton btnSubtracao = new JButton("-");
+		btnSubtracao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dados.setOperador("-");
 				textField.setText(dados.getOperador());
 				if (dados.getEstadoOperando()) {
-					botaoResultado.getAction();
+					btnResultado.getAction();
 					dados.setSeEstaOperando(false);
 				}
 
 			}
 		});
-		btnNewButton_11_1.setBounds(212, 145, 75, 35);
-		frame.getContentPane().add(btnNewButton_11_1);
+		btnSubtracao.setBounds(212, 145, 75, 35);
+		frame.getContentPane().add(btnSubtracao);
 
-		JButton btnNewButton_11_2 = new JButton("*");
-		btnNewButton_11_2.addActionListener(new ActionListener() {
+		JButton btnMultiplicacao = new JButton("*");
+		btnMultiplicacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dados.setOperador("*");
 				textField.setText(dados.getOperador());
 				if (dados.getEstadoOperando()) {
-					botaoResultado.getAction();
+					btnResultado.getAction();
 					dados.setSeEstaOperando(false);
 				}
 			}
 		});
-		btnNewButton_11_2.setBounds(286, 145, 75, 35);
-		frame.getContentPane().add(btnNewButton_11_2);
+		btnMultiplicacao.setBounds(286, 145, 75, 35);
+		frame.getContentPane().add(btnMultiplicacao);
 
-		JButton btnNewButton_11_3 = new JButton("/");
-		btnNewButton_11_3.addActionListener(new ActionListener() {
+		JButton btnDivisao = new JButton("/");
+		btnDivisao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dados.setOperador("/");
 				textField.setText(dados.getOperador());
 				if (dados.getEstadoOperando()) {
-					botaoResultado.getAction();
+					btnResultado.getAction();
 					dados.setSeEstaOperando(false);
 				}
 			}
 		});
-		btnNewButton_11_3.setBounds(358, 145, 75, 35);
-		frame.getContentPane().add(btnNewButton_11_3);
+		btnDivisao.setBounds(358, 145, 75, 35);
+		frame.getContentPane().add(btnDivisao);
 
-		JButton btnNewButton_2_1_4_1 = new JButton("RECURSIVO");
-		btnNewButton_2_1_4_1.setBounds(10, 341, 99, 39);
-		frame.getContentPane().add(btnNewButton_2_1_4_1);
+		JButton btnRecursivo = new JButton("RECURSIVO");
+		btnRecursivo.setBounds(10, 341, 99, 39);
+		frame.getContentPane().add(btnRecursivo);
+		
+		JLabel lblNewLabel_3 = new JLabel("Telefone");
+		lblNewLabel_3.setBounds(32, 406, 56, 14);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Email");
+		lblNewLabel_4.setBounds(212, 406, 46, 14);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("GitHub");
+		lblNewLabel_5.setBounds(369, 406, 46, 14);
+		frame.getContentPane().add(lblNewLabel_5);
 	}
-
 }

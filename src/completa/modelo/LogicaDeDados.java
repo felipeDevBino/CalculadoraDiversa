@@ -2,13 +2,15 @@ package completa.modelo;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import completa.historico.Historico;
 import start.Mensagens;
 
 import java.util.ArrayList;
 
 public class LogicaDeDados {
-	
+
 	private List<Integer> primeiroOperador;
 	private List<Integer> segundoOperador;
 	private List<Integer> resultados;
@@ -16,7 +18,7 @@ public class LogicaDeDados {
 	private String operador;
 	private int resultado;
 	private Mensagens mensagem;
-	
+
 	public LogicaDeDados() {
 		primeiroOperador = new ArrayList<>();
 		segundoOperador = new ArrayList<>();
@@ -27,67 +29,68 @@ public class LogicaDeDados {
 	public void adicionaNumero(int num) {
 		primeiroOperador.add(num);
 	}
-	
+
 	public void adicionaNumeroAOperar(int num) {
 		segundoOperador.add(num);
 	}
-	
+
 	public void setPrimeiroOperador(int num) {
 		primeiroOperador.add(num);
 	}
-	
+
 	public void setSegundoOperador(int num) {
 		segundoOperador.add(num);
 	}
-	
+
 	public void setSeEstaOperando(boolean operando) {
-		if(operando) {
+		if (operando) {
 			estaOperando = true;
-		}else {
+		} else {
 			estaOperando = false;
 		}
 	}
-	
+
 	public boolean getEstadoOperando() {
 		return estaOperando;
 	}
-	
+
 	public String getOperador() {
 		return operador;
 	}
-	
+
 	public void setOperador(String info) {
 		operador = info;
 	}
-	
+
 	public List<Integer> getPrimeiroOperador() {
 		return primeiroOperador;
 	}
-	
+
 	public List<Integer> getSegundoOperador() {
 		return segundoOperador;
 	}
-	
+
 	public void limpaPrimeiroOperador() {
 		primeiroOperador.clear();
 	}
+
 	public void limpaSegundoOperador() {
 		segundoOperador.clear();
 	}
-	
+
 	public void limpaNumerosRegistrados() {
 		limpaPrimeiroOperador();
 		limpaSegundoOperador();
 	}
-	
+
 	private void salvaResultado(int resultado) {
 		resultados.add(resultado);
 	}
-	
+
 	public List<Integer> getResultados() {
 		return resultados;
 	}
-	
+
 	public String getValorPrimeiroOperador() {
 		StringBuilder valor = new StringBuilder();
 		for (Integer numero : getPrimeiroOperador()) {
@@ -103,10 +106,10 @@ public class LogicaDeDados {
 		}
 		return valor.toString();
 	}
-	
+
 	public int atualizaListaComResultado(List<Integer> numeros) {
 		StringBuilder valor = new StringBuilder();
-		for(Integer numero : numeros) {
+		for (Integer numero : numeros) {
 			valor.append(numero);
 		}
 		int valorTotal = Integer.parseInt(valor.toString());
@@ -115,29 +118,35 @@ public class LogicaDeDados {
 
 	private String logicaDeOperacao(Historico historico, String operador) {
 		resultado = 0;
-		int primeiro = atualizaListaComResultado(primeiroOperador);
-		int segundo = atualizaListaComResultado(segundoOperador);
-		
-		switch (operador) {
-		case "+":
-			resultado = (primeiro + segundo);
-			break;
-		case "-":
-			resultado = (primeiro - segundo);
-			break;
-		case "*":
-			resultado = (primeiro * segundo);
-			break;
-		case "/":
-			resultado = (primeiro / segundo);
-			break;
+		if (getPrimeiroOperador().isEmpty() || getSegundoOperador().isEmpty()) {
+			JOptionPane.showMessageDialog(null,
+					mensagem.getTexto("Erro, insira ambos os valores para serem operados!"));
+			limpaNumerosRegistrados();
+		} else {
+			int primeiro = atualizaListaComResultado(primeiroOperador);
+			int segundo = atualizaListaComResultado(segundoOperador);
+
+			switch (operador) {
+			case "+":
+				resultado = (primeiro + segundo);
+				break;
+			case "-":
+				resultado = (primeiro - segundo);
+				break;
+			case "*":
+				resultado = (primeiro * segundo);
+				break;
+			case "/":
+				resultado = (primeiro / segundo);
+				break;
+			}
+			historico.registrarNoHistorico(this, resultado);
+			salvaResultado(resultado);
+			limpaNumerosRegistrados();
+			setPrimeiroOperador(resultado);
+			return mensagem.getTexto(resultado + "");
 		}
-		historico.registrarNoHistorico(this, resultado);
-		salvaResultado(resultado);
-		limpaNumerosRegistrados();
-		setPrimeiroOperador(resultado);
-		limpaSegundoOperador();
-		return mensagem.getTexto(resultado+"");
+		return "";
 	}
 
 	public String realizarOperacao(Historico historico, String operador) {
