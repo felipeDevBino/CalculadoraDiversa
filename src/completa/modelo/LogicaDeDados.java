@@ -5,7 +5,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import completa.historico.Historico;
-import start.Mensagens;
 
 import java.util.ArrayList;
 
@@ -17,13 +16,11 @@ public class LogicaDeDados {
 	private boolean estaOperando = false;
 	private String operador;
 	private int resultado;
-	private Mensagens mensagem;
 
 	public LogicaDeDados() {
 		primeiroOperador = new ArrayList<>();
 		segundoOperador = new ArrayList<>();
 		resultados = new ArrayList<>();
-		mensagem = new Mensagens();
 	}
 
 	public void adicionaNumero(int num) {
@@ -33,15 +30,7 @@ public class LogicaDeDados {
 	public void adicionaNumeroAOperar(int num) {
 		segundoOperador.add(num);
 	}
-
-	public void setPrimeiroOperador(int num) {
-		primeiroOperador.add(num);
-	}
-
-	public void setSegundoOperador(int num) {
-		segundoOperador.add(num);
-	}
-
+	
 	public void setSeEstaOperando(boolean operando) {
 		if (operando) {
 			estaOperando = true;
@@ -139,10 +128,10 @@ public class LogicaDeDados {
 				resultado = (primeiro / segundo);
 				break;
 			}
-			historico.registrarNoHistorico(this, resultado);
+			historico.registraNoHistorico(this, "", resultado);
 			salvaResultado(resultado);
 			limpaNumerosRegistrados();
-			setPrimeiroOperador(resultado);
+			adicionaNumero(resultado);
 			return resultado + "";
 		}
 		return "";

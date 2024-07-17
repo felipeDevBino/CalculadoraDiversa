@@ -20,6 +20,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import completa.historico.Historico;
+import completa.modelo.CalculaMedia;
 import completa.modelo.LogicaDeDados;
 import start.Mensagens;
 
@@ -36,6 +37,8 @@ public class InterfaceCompleta {
 	private JTextField textField;
 	private LogicaDeDados dados;
 	private Historico historico;
+	private boolean media = false;
+	private int quantidadeOperandos = 0;
 
 	/**
 	 * Launch the application.
@@ -183,6 +186,29 @@ public class InterfaceCompleta {
 		btn0.setBounds(129, 341, 99, 39);
 		frame.getContentPane().add(btn0);
 
+		JButton btnResultado = new JButton("=");
+		btnResultado.setFont(new Font("Arial Black", Font.PLAIN, 10));
+		btnResultado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(media) {
+					quantidadeOperandos++;
+					CalculaMedia media = new CalculaMedia();
+					textField.setText("m:"+media.retornaMedia(dados, historico, quantidadeOperandos));
+					
+					//TAREFAS:
+					
+					//DIVIDIR FUNÇÕES
+					
+					quantidadeOperandos = 0;
+				}else {
+					textField.setText(dados.realizarOperacao(historico, dados.getOperador()));
+					dados.setOperador(null);
+				}
+			}
+		});
+		btnResultado.setBounds(347, 341, 99, 39);
+		frame.getContentPane().add(btnResultado);
+
 		JButton btnVirgula = new JButton(",");
 		btnVirgula.setBounds(238, 341, 99, 39);
 		frame.getContentPane().add(btnVirgula);
@@ -266,10 +292,6 @@ public class InterfaceCompleta {
 		lblNewLabel_1.setBounds(32, 145, 66, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JButton btnMedia = new JButton("MÉDIA");
-		btnMedia.setBounds(10, 191, 99, 39);
-		frame.getContentPane().add(btnMedia);
-
 		JButton btnSobra = new JButton("SOBRA");
 		btnSobra.setBounds(10, 241, 99, 39);
 		frame.getContentPane().add(btnSobra);
@@ -309,16 +331,6 @@ public class InterfaceCompleta {
 		btnHistorico.setBounds(56, 99, 91, 35);
 		frame.getContentPane().add(btnHistorico);
 
-		JButton btnResultado = new JButton("=");
-		btnResultado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textField.setText(dados.realizarOperacao(historico, dados.getOperador()));
-				dados.setOperador(null);
-			}
-		});
-		btnResultado.setBounds(347, 341, 99, 39);
-		frame.getContentPane().add(btnResultado);
-
 		JButton btnOff = new JButton("OFF");
 		btnOff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -328,11 +340,15 @@ public class InterfaceCompleta {
 		btnOff.setBounds(315, 99, 91, 35);
 		frame.getContentPane().add(btnOff);
 
+		
 		JButton btnSoma = new JButton("+");
 		btnSoma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
+				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {					
 					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " + ");
+					if(media) {
+						quantidadeOperandos++;
+					}
 				} else {
 					dados.setOperador("+");
 					textField.setText(dados.getOperador());
@@ -340,6 +356,9 @@ public class InterfaceCompleta {
 					if (dados.getEstadoOperando()) {
 						btnResultado.getAction();
 						dados.setSeEstaOperando(false);
+					}
+					if(media) {
+						quantidadeOperandos++;
 					}
 				}
 			}
@@ -360,7 +379,7 @@ public class InterfaceCompleta {
 						btnResultado.getAction();
 						dados.setSeEstaOperando(false);
 					}
-				}				
+				}
 			}
 		});
 		btnSubtracao.setBounds(212, 145, 75, 35);
@@ -368,18 +387,18 @@ public class InterfaceCompleta {
 
 		JButton btnMultiplicacao = new JButton("*");
 		btnMultiplicacao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
+			public void actionPerformed(ActionEvent e) {
 				if (!dados.getPrimeiroOperador().isEmpty() && !dados.getSegundoOperador().isEmpty()) {
 					textField.setText(dados.realizarOperacao(historico, dados.getOperador()) + " * ");
 				} else {
 					dados.setOperador("*");
 					textField.setText(dados.getOperador());
-					
+
 					if (dados.getEstadoOperando()) {
 						btnResultado.getAction();
 						dados.setSeEstaOperando(false);
 					}
-				}			
+				}
 			}
 		});
 		btnMultiplicacao.setBounds(286, 145, 75, 35);
@@ -393,7 +412,7 @@ public class InterfaceCompleta {
 				} else {
 					dados.setOperador("/");
 					textField.setText(dados.getOperador());
-					
+
 					if (dados.getEstadoOperando()) {
 						btnResultado.getAction();
 						dados.setSeEstaOperando(false);
@@ -403,6 +422,29 @@ public class InterfaceCompleta {
 		});
 		btnDivisao.setBounds(358, 145, 75, 35);
 		frame.getContentPane().add(btnDivisao);
+
+		JButton btnMedia = new JButton("MÉDIA");
+		btnMedia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (media) {
+					btnResultado.setText("=");
+					btnSubtracao.setVisible(true);
+					btnMultiplicacao.setVisible(true);
+					btnDivisao.setVisible(true);
+					btnMedia.setText("MÉDIA");
+					media = false;
+				} else {
+					btnResultado.setText("= MÉDIA");
+					btnSubtracao.setVisible(false);
+					btnMultiplicacao.setVisible(false);
+					btnDivisao.setVisible(false);
+					btnMedia.setText("COMUM");
+					media = true;
+				}
+			}
+		});
+		btnMedia.setBounds(10, 191, 99, 39);
+		frame.getContentPane().add(btnMedia);
 
 		JButton btnRecursivo = new JButton("RECURSIVO");
 		btnRecursivo.setBounds(10, 341, 99, 39);

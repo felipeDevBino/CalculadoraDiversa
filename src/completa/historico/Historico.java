@@ -33,19 +33,15 @@ public class Historico {
 		return get.toString();
 	}
 
-	private void registraNoHistorico(LogicaDeDados dados, int resultado) {
+	public void registraNoHistorico(LogicaDeDados dados, String adicional, int resultado) {
 		mensagemStr = new StringBuilder();
 
 		mensagemStr.append("(" + dados.getValorPrimeiroOperador() + " ")
 		.append(dados.getOperador() + " ")
 		.append(dados.getValorSegundoOperador() + ")")
-		.append("\n = " + resultado + "\n");
+		.append("\n = " + adicional + resultado + "\n");
 
 		historico.add(mensagemStr.toString());
-	}
-
-	public void registrarNoHistorico(LogicaDeDados dados, int resultado) {
-		registraNoHistorico(dados, resultado);
 	}
 
 }
