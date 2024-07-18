@@ -8,7 +8,7 @@ import completa.historico.Historico;
 
 import java.util.ArrayList;
 
-public class LogicaDeDados {
+public class LogicaDeOperacao {
 
 	private List<Integer> primeiroOperador;
 	private List<Integer> segundoOperador;
@@ -17,7 +17,7 @@ public class LogicaDeDados {
 	private String operador;
 	private int resultado;
 
-	public LogicaDeDados() {
+	public LogicaDeOperacao() {
 		primeiroOperador = new ArrayList<>();
 		segundoOperador = new ArrayList<>();
 		resultados = new ArrayList<>();

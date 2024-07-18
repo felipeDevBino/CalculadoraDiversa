@@ -2,7 +2,7 @@ package completa.historico;
 
 import java.util.ArrayList;
 import java.util.List;
-import completa.modelo.LogicaDeDados;
+import completa.modelo.LogicaDeOperacao;
 import start.Mensagens;
 
 public class Historico {
@@ -33,7 +33,7 @@ public class Historico {
 		return get.toString();
 	}
 
-	public void registraNoHistorico(LogicaDeDados dados, String adicional, int resultado) {
+	public void registraNoHistorico(LogicaDeOperacao dados, String adicional, int resultado) {
 		mensagemStr = new StringBuilder();
 
 		mensagemStr.append("(" + dados.getValorPrimeiroOperador() + " ")
