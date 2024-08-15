@@ -23,6 +23,7 @@ import completa.historico.Historico;
 import completa.modelo.ApagarValores;
 import completa.modelo.CalculaMedia;
 import completa.modelo.LogicaDeOperacao;
+import completa.modelo.funcoes.AddBotao;
 import start.Mensagens;
 
 import javax.swing.JLabel;
@@ -462,7 +463,7 @@ public class InterfaceCompleta {
 		lblNewLabel_5.setBounds(369, 406, 46, 14);
 		frame.getContentPane().add(lblNewLabel_5);
 
-		JButton btnOff_1 = new JButton("<=");
+		JButton btnOff_1 = new JButton("<="); 
 		btnOff_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (dados.getSegundoOperador().isEmpty()) {
